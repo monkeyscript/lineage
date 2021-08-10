@@ -1,0 +1,25 @@
+<div class="home">
+    <div class="container">
+        <div class="graph-container">
+            <div class="h-100">
+                <ngx-graph
+                [layoutSettings]="{ orientation : 'TB' }"
+                    [links]="edges"
+                    [nodes]="nodes"
+                    [autoCenter]="true"
+                    >
+                    <ng-template #nodeTemplate let-node>
+                        <svg:g class="node">
+                            <svg [attr.width]="node.dimension.width" [attr.height]="node.dimension.height">
+                                <circle cx="25" cy="25" r="25" stroke="black" stroke-width="3" fill="red" />
+                                <!-- <image x="0%" y="0%" width="50" height="50" [attr.href]="'https://picsum.photos/200/300'"></image> -->
+                                <title>{{node|json}}</title>
+                            </svg>
+                        </svg:g>
+                    </ng-template>
+                </ngx-graph>
+            </div>
+        </div>
+        {{data|json}}
+    </div>
+</div>
