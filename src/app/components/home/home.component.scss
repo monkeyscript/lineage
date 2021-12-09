@@ -3,5 +3,59 @@
 .graph-container {
     border-radius: 1.5rem;
     box-shadow: inset 1.5rem 1.5rem 3rem $color-shadow-positive, inset -1.5rem -1.5rem 3rem $color-shadow-negative;
-    height: 80vh;
+    height: 60vh;
+    touch-action: none;
+    overflow: hidden;
+}
+
+.node {
+    -webkit-filter: drop-shadow(.5rem .5rem .5rem $color-shadow-positive) drop-shadow(-.5rem -.5rem .5rem $color-shadow-negative);
+    filter: drop-shadow(.5rem .5rem .5rem $color-shadow-positive) drop-shadow(-.5rem -.5rem .5rem $color-shadow-negative);
+    transition: ease .5s;
+}
+
+.node:hover {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(.5rem .5rem .5rem $color-shadow-positive) drop-shadow(-.5rem -.5rem .5rem $color-shadow-negative);
+    filter: drop-shadow(.5rem .5rem .5rem $color-shadow-negative) drop-shadow(-.5rem -.5rem .5rem $color-shadow-positive);
+}
+
+svg rect {
+    fill: $color-dark;
+}
+
+svg image {
+    filter: grayscale(100%);
+}
+
+.node-details-modal-overlay {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.node-details-modal {
+    box-shadow: inset .5rem .5rem .5rem $color-shadow-positive, inset -.5rem -.5rem .5rem $color-shadow-negative;
+    background-color: $color-dark;
+    border-radius: 1.5rem;
+    max-width: 80%;
+    flex-direction: column;
+}
+
+.node-details-modal-img {
+    box-shadow: .5rem .5rem .5rem $color-shadow-positive, -.5rem -.5rem .5rem $color-shadow-negative;
+    padding: 10px;
+    width: 80%;
+    border-radius: 1.5rem;
+}
+
+.birthday-list-container {
+    font-size: smaller;
+    color: $color-light;
+}
+
+.birthday-list-header {
+    font-weight: bold;
 }

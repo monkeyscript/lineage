@@ -18,6 +18,15 @@ export class HomeComponent implements OnInit {
   // Edges for the graph
   edges : Edge[] = [];
 
+  // Selected node
+  selectedNode: any = {};
+
+  // List of upcoming birthdays
+  upcomingBirthdays: {
+    name: string,
+    date: string
+  }[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,7 +49,29 @@ export class HomeComponent implements OnInit {
         )
       }
     )
+    
+    // Find upcoming birthdays
+    let currentDate = new Date(); 
+    // Iterate over people and check date 
+    this.data.forEach(person => {
+      let bday = new Date(person.bday);
+      bday.setFullYear(currentDate.getFullYear());
+      if(bday > currentDate) {
+        this.upcomingBirthdays.push({
+          name : person.name,
+          date : new Date(bday).toLocaleDateString('en-us', {weekday:"long", month:"short", day:"numeric"}) 
+        })
+      }
+    });
 
+  }
+
+  // On node click
+  onNodeSelect(node:Node) {
+    let selectedNode = this.data.find(person=>person.id===node.id);
+    if(selectedNode) {
+      this.selectedNode = selectedNode;
+    }
   }
 
 }

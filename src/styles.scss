@@ -11,6 +11,10 @@ body {
     min-height: 100vh;
 }
 
+.d-flex {
+    display: flex;
+}
+
 .easy-center {
     display: flex;
     justify-content: center;
