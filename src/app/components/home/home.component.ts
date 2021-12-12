@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     this.data.forEach(person => {
       let bday = new Date(person.bday);
       bday.setFullYear(currentDate.getFullYear());
-      if(bday > currentDate) {
+      if(person.bday!=='' && bday > currentDate) {
         this.upcomingBirthdays.push({
           name : person.name,
           date : new Date(bday).toLocaleDateString('en-us', {weekday:"long", month:"short", day:"numeric"}) 

@@ -3,7 +3,7 @@
 .graph-container {
     border-radius: 1.5rem;
     box-shadow: inset 1.5rem 1.5rem 3rem $color-shadow-positive, inset -1.5rem -1.5rem 3rem $color-shadow-negative;
-    height: 60vh;
+    height: 80vh;
     touch-action: none;
     overflow: hidden;
 }
@@ -29,10 +29,14 @@ svg image {
 }
 
 .node-details-modal-overlay {
-    position: absolute;
-    top: 0;
+    position: fixed;
     height: 100vh;
     width: 100vw;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
     background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
@@ -47,7 +51,7 @@ svg image {
 .node-details-modal-img {
     box-shadow: .5rem .5rem .5rem $color-shadow-positive, -.5rem -.5rem .5rem $color-shadow-negative;
     padding: 10px;
-    width: 80%;
+    width: 40%;
     border-radius: 1.5rem;
 }
 

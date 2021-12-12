@@ -1,0 +1,53 @@
+@import '../../../variables.scss';
+
+.auth-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: $color-dark;
+}
+
+.auth-card {
+    box-shadow: .5rem .5rem .5rem $color-shadow-positive, -.5rem -.5rem .5rem $color-shadow-negative;
+    border-radius: 1.5rem;
+}
+
+.header {
+    font-family: $font-display;
+    font-size: x-large;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, button {
+    border-radius: 1.5rem;
+    background-color: $color-dark;
+    border: none;
+    text-align: center;
+}
+
+input {
+    box-shadow: inset .5rem .5rem .5rem $color-shadow-positive, inset -.5rem -.5rem .5rem $color-shadow-negative;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+button {
+    box-shadow: .5rem .5rem .5rem $color-shadow-positive, -.5rem -.5rem .5rem $color-shadow-negative;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: inset .5rem .5rem .5rem $color-shadow-positive, inset -.5rem -.5rem .5rem $color-shadow-negative;
+}

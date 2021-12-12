@@ -9,7 +9,6 @@
                     [links]="edges"
                     [nodes]="nodes"
                     [draggingEnabled]="false"
-                    [enableZoom]="false"
                     (select)="onNodeSelect($event)"
                 >
                     <ng-template #nodeTemplate let-node>
@@ -37,12 +36,17 @@
             
         <!-- Birthdays -->
         <div class="row birthday-list-container py-3">
-            <div class="col-md-4 birthday-list-header mb-3">
+            <!-- <div class="col-md-4 birthday-list-header mb-3">
                 Upcoming Birthdays :
             </div>            
             <div class="col-md-8 birthday-list">
                 <div class="birthday-list-item mb-2" *ngFor="let bday of upcomingBirthdays">
                     {{bday.name}} - {{bday.date}}
+                </div>
+            </div> -->
+            <div class="col-md-8 birthday-list">
+                <div class="birthday-list-item mb-2" *ngFor="let item of data">
+                    {{item.name}} - {{item.bday}}
                 </div>
             </div>
         </div>

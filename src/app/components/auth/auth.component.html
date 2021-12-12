@@ -1,0 +1,13 @@
+<div class="auth-container easy-center" *ngIf="enableAuth">
+    <div class="auth-card p-5">
+        <div class="header mb-3">
+            Lineage.
+        </div>
+        <form class="form" #authForm="ngForm">
+            <input class="py-3 px-4 mb-3" type="password" required ngModel name="password" placeholder="Enter password!">
+            <button class="py-3 px-4" type="submit" (click)="onAuth(authForm)">
+                Go
+            </button>
+        </form>
+    </div>
+</div>
