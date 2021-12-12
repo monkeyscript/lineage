@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../../data/list';
-import { Node, Edge } from '@swimlane/ngx-graph'
+import { Node, Edge } from '@swimlane/ngx-graph';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -27,9 +29,14 @@ export class HomeComponent implements OnInit {
     date: string
   }[] = [];
 
-  constructor() { }
+  constructor(
+    private firestore: AngularFirestore
+  ) { }
 
   ngOnInit(): void {
+
+    let items = this.firestore.collection('people').valueChanges();
+    items.subscribe(result=>console.log(result))
 
     // Iterate over data 
     this.data.forEach(

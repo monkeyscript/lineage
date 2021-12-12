@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { NgxGraphModule } from '@swimlane/ngx-graph'
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +28,9 @@ import { AuthComponent } from './components/auth/auth.component';
     FormsModule,
     AppRoutingModule,
     NgxGraphModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     CookieService
