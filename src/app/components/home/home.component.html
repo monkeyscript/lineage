@@ -1,6 +1,6 @@
 <div class="home">
     <div class="container">
-        
+
         <!-- Graph -->
         <div class="graph-container">
             <div class="h-100">
@@ -10,6 +10,7 @@
                     [nodes]="nodes"
                     [draggingEnabled]="false"
                     (select)="onNodeSelect($event)"
+                    [update$]="update$"
                 >
                     <ng-template #nodeTemplate let-node>
                         <svg:g class="node">
@@ -23,7 +24,7 @@
                                 <image 
                                   width="80" 
                                   height="80" 
-                                  [attr.href]="'assets/persons/' + node.id + '.jpeg'" 
+                                  [attr.href]="node.image" 
                                   clip-path="url(#rectView)"
                                 />
                                 <title>{{node.label}}</title>
@@ -45,8 +46,8 @@
                 </div>
             </div> -->
             <div class="col-md-8 birthday-list">
-                <div class="birthday-list-item mb-2" *ngFor="let item of data">
-                    {{item.name}} - {{item.bday}}
+                <div class="birthday-list-item mb-2" *ngFor="let item of people">
+                    {{item.name}} - {{item.birthday}}
                 </div>
             </div>
         </div>
@@ -56,7 +57,7 @@
 
 <div class="node-details-modal-overlay easy-center" *ngIf="selectedNode.id!==undefined" (click)="selectedNode={}">
     <div class="node-details-modal easy-center p-5">
-        <img class="node-details-modal-img" [attr.src]="'assets/persons/' + selectedNode.id + '.jpeg'">
+        <img class="node-details-modal-img" [attr.src]="selectedNode.image">
         <span class="node-details-modal-text mt-3">{{selectedNode.name}}</span>
     </div>
 </div>
